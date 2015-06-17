@@ -20,8 +20,16 @@ import java.util.List;
 
 public interface AEZLayout<T extends AEZCell> {
 
+    /**
+     * Returns the layout title
+     * @return the layout title
+     */
     public abstract String getTitle();
 
+    /**
+     * Gets the cells contained in the layout
+     * @return The cells
+     */
     public abstract List<AEZCell> getCells();
 
     /**

@@ -18,6 +18,16 @@ import java.util.List;
  * An interface for layout fetch responses
  */
 public interface AEZFetchLayoutResponseInterface {
+
+    /**
+     * Returns the title of the server
+     * @return The server title
+     */
     public String getTitle();
+
+    /**
+     * Contains a list of the layouts the server returns
+     * @return The layouts
+     */
     public List<AEZLayout> getLayouts();
 }

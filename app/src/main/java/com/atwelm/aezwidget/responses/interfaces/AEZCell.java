@@ -48,18 +48,47 @@ public abstract class AEZCell {
 
     protected Bitmap mIconBitmap;
 
+    /**
+     * Gets the URL to execute when the cell is tapped
+     * @return The URL
+     */
     public abstract String getExecutionUrl();
 
+    /**
+     * Gets the execution type of the URL (GET or POST) to be executed when the cell is tapped
+     * @return the execution type
+     */
     public abstract String getExecutionType();
 
+    /**
+     * Gets the body to be included with the URL to be executed when the cell is tapped
+     * @return The body data
+     */
     public abstract String getExecutionBody();
 
+    /**
+     * Gets the headers to be included with the URL to be executed when the cell is tapped
+     * @return The headers
+     */
     public abstract HttpHeaders getExecutionHeaders();
 
+    /**
+     * Gets the label to be displayed on the cell
+     * @return The user viewable label
+     */
     public abstract String getLabel();
 
+    /**
+     * Gets the URL of the icon url, if any. Returns null if there is none.
+     * @return The icon url if exists, or null.
+     */
     public abstract String getIconUrl();
 
+    // TODO: make asynchronous
+    /**
+     * Synchronously gets the icon bitmap, if available. If it has not already been fetched, it may take some time to fetch.
+     * @return
+     */
     public final Bitmap getIconBitmap() {
         String iconUrl = getIconUrl();
 
@@ -82,6 +111,10 @@ public abstract class AEZCell {
         return mIconBitmap;
     }
 
+    /**
+     * Indicates if it is an executable cell
+     * @return
+     */
     public boolean isExecutable() {
         String executionType = getExecutionType();
         String executionUrl = getExecutionUrl();
@@ -89,6 +122,10 @@ public abstract class AEZCell {
                 (executionType.equals("GET") || executionType.equals("POST") || executionType.equals("PUT"));
     }
 
+    /**
+     * Executes the URL and associated details for the cell
+     * @param callback The callback when completed
+     */
     public final void execute(final ExecutionResponseCallback callback) {
         if (!isExecutable()) {
             return;

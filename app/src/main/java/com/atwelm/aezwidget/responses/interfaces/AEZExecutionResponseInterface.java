@@ -16,6 +16,18 @@ package com.atwelm.aezwidget.responses.interfaces;
  * Created by austin on 2/23/15.
  */
 public interface AEZExecutionResponseInterface {
+
+    // TODO: Implement layout updating
+    /**
+     * Returns the new label for the button
+     * @return the new label
+     */
     public String getLabel();
+
+    // TODO: Implement icon updating
+    /**
+     * Returns a new icon for the button
+     * @return The new icon
+     */
     public String getIconUrl();
 }
