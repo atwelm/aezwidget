@@ -1,2 +1,16 @@
 # aezwidget
-EZ-Widget to provide a simple way to create android widgets
+This is very much an alpha build of Android EZ-Widget (aezwidget) as it is very unpolished (it doesn't even have an icon), but functional.
+
+It is meant to make it easy to create android widgets using either your own rest endpoints or rest endpoints that follow the default widget format.  It allows extreme flexibility in size by decoupling the content layout from the widget size; That is, you can define how many items to display vertically and horizontally and allow the widget size to be whatever you want.  For text the widget will split the widget space between all widgets automatically, For images, it will split properly horizontally, but you should define a size for the vertical property or the sizes will be rather arbitrary (images are more difficult to dynamically resize in a widget than text).
+
+The main application allows the user to define servers that will return compatible widget layouts.  This project uses Spring for Android to simplify REST implementation so you simply have to define files with objects that match what the rest endpoint will return.
+
+A typical flow would be as follows:
+
+1.  The user adds the server using the main application.
+2.  When the user tries adding a widget, they can select a server. When it is selected, it will make a request. It will return a JSON response that matches an object that implements [AEZFetchLayoutResponseInterface](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/responses/interfaces/AEZFetchLayoutResponseInterface.java) for the layout response, [AEZLayout](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/responses/interfaces/AEZLayout.java) for the layout, and [AEZCell](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/responses/interfaces/AEZCell.java) for the cell information.
+3.  The user selects the sizing options as they see fit and adds it to their homepage.
+
+If the cells implement the required data to execute a URL when tapped as specified in [AEZCell](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/responses/interfaces/AEZCell.java), they can be interactive.  An implementation required to react to the response from the execution is defined in [AEZExecutionResponseInterface](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/responses/interfaces/AEZExecutionResponseInterface.java), but not currently implemented.
+
+There is a [Generic](https://github.com/atwelm/aezwidget/tree/master/app/src/main/java/com/atwelm/aezwidget/responses/generic) set of responses that can be used along with another server to implement new widgets without modifying the application (I used a node.js server myself). There are also custom implementations. They are defined in [ServerTypes](https://github.com/atwelm/aezwidget/blob/master/app/src/main/java/com/atwelm/aezwidget/ServerTypes.java), which refer to corresponding directories in the [responses](https://github.com/atwelm/aezwidget/tree/master/app/src/main/java/com/atwelm/aezwidget/responses) directory. Currently a Generic, OpenHAB (1 and 2 compatible), and basic Sonarr implementation have been written which make a good reference if you would like to define your own endpoint type that could be included with the project.
