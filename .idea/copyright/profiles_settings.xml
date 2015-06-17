@@ -1,0 +1,8 @@
+<component name="CopyrightManager">
+  <settings default="Austin">
+    <module2copyright>
+      <element module="Project Files" copyright="Austin" />
+      <element module="Production" copyright="Austin" />
+    </module2copyright>
+  </settings>
+</component>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015.
+  ~
+  ~ The author of these files, Austin Wellman, allows modification, reproduction and private use of them. It, derived works, and works including derived files cannot be published to an app store, packaged and redistributed, used commercially, or sublicensed.
+  ~
+  ~ During the building process, gradle pulls the following files covered under the Apache License 2.0 which is located in the root of this repository as the file "included_licenses/APACHE_2.0.txt":
+  ~ gson
+  ~ spring-android-core
+  ~ spring-android-rest-template
+  ~ support-annotations
+  -->
+
+<resources>
+
+    <string name="app_name">AEZWidget</string>
+    <string name="app_widget_name">AEZWidget-Widget</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_server">Add Server</string>
+
+    <!--<string name="action_settings">Settings</string>-->
+    <!--<string name="appwidget_text">EXAMPLE</string>-->
+    <string name="add_widget">Add widget</string>
+    <!--<string name="configure">Configure</string>-->
+    <string name="label_text_size">Text Size (dp): </string>
+    <string name="label_text_size_sample">Sample Text</string>
+    <string name="label_attempt_load_images">Attempt to load images</string>
+    <string name="label_layouts">Layout: </string>
+    <string name="label_column_count">Column Count: </string>
+    <string name="label_component_height">Component Height: </string>
+    <string name="label_loading">Loading...</string>
+    <string name="label_loading_failed">Loading failed.</string>
+    <string name="label_row_count">Row Count: </string>
+    <string name="label_server_url">Server Url: </string>
+    <string name="label_server_name">Server Name: </string>
+    <string name="label_server_format">Server Format: </string>
+    <string name="label_server">Server</string>
+    <string-array name="textSizes">
+        <item>16</item>
+        <item>22</item>
+        <item>28</item>
+    </string-array>
+    <string-array name="counts">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="componentHeights">
+        <item>Flexible</item>
+        <item>Test</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra Large</item>
+    </string-array>
+    <string-array name="serverFormats">
+        <item>AEZWidget</item>
+        <item>OpenHAB</item>
+    </string-array>
+
+</resources>
